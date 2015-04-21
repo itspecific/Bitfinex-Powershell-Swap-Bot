@@ -107,8 +107,6 @@ $signaturehex = $signature | ForEach-Object { $_.ToString("x2") }
 $signaturehex = $signaturehex -join ""
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
-#$headers.add("Accept-Encoding", "Accept-Encoding: gzip")
-#$headers.add("User-Agent", "Powershell Script Engine")
 $headers.Add("X-BFX-APIKEY", $APIKey)
 $headers.Add("X-BFX-PAYLOAD", $payload)
 $headers.Add("X-BFX-SIGNATURE", $signaturehex)
