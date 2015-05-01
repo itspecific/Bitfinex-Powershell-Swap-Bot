@@ -116,6 +116,7 @@ Invoke-RestMethod -Method Post -Uri $BFXURI -Headers $headers
 
 do {
 $CurrentSwapOffers = Bitfinex-GetCurrentSwapOffers
+$CurrentSwapOffers = $CurrentSwapOffers | where {$_.currency -match "BTC"}
 [double]$CurrentFRR = Bitfinex-GetCurrentFRR
 #How Many in Offers
 $sum = $null
