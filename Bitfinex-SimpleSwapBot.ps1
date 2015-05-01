@@ -60,7 +60,7 @@ Bitfinex-PayloadEncoder "$APIKey" "$APISecret" $payloadraw
 function Bitfinex-GetCurrentFRR {
 Write-Verbose "Bitfinex-GetCurrentFRR Called"
 Sleep -Seconds 1
-$LendbookAsk = Invoke-RestMethod -Uri https://api.bitfinex.com/v1/lendbook/btc -Method Get | Select asks
+$LendbookAsk = Invoke-RestMethod -Uri https://api.bitfinex.com/v1/lendbook/btc?limit_asks=100 -Method Get | Select asks
 
 foreach ($ask in $LendbookAsk.asks) {
     if ($ask.frr -eq "Yes") {
